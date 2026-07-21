@@ -19,7 +19,8 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: '24.x'
-          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false
 
       - name: Install dependencies
         run: yarn install --ignore-engines
@@ -49,5 +50,6 @@ jobs:
 
       - name: Publish to npm with Trusted Publishing
         run: |
+          npm ci
           npm pkg delete scripts dependencies devDependencies overrides resolutions
           npm publish --access public --provenance
