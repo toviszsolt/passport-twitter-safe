@@ -50,6 +50,5 @@ jobs:
 
       - name: Publish to npm with Trusted Publishing
         run: |
-          npm ci
           npm pkg delete scripts dependencies devDependencies overrides resolutions
           npm publish --access public --provenance
