@@ -1,27 +1,44 @@
+[![license](https://img.shields.io/npm/l/passport-twitter-safe.svg)](https://github.com/toviszsolt/passport-twitter-safe/blob/main/LICENSE)
+
+[![npm version](https://img.shields.io/npm/v/passport-twitter-safe.svg)](https://www.npmjs.com/package/passport-twitter-safe)
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/toviszsolt/passport-twitter-safe?color=DAAA3F)](https://github.com/toviszsolt/passport-twitter-safe/stargazers)
+
+[![bundle size](https://img.shields.io/bundlephobia/minzip/passport-twitter-safe)](https://bundlephobia.com/result?p=passport-twitter-safe)
+
+[![Run tests](https://github.com/toviszsolt/passport-twitter-safe/actions/workflows/main.yml/badge.svg)](https://github.com/toviszsolt/passport-twitter-safe/actions/workflows/main.yml)
+
+[![Sponsor](https://img.shields.io/static/v1?label=sponsor&message=❤&color=ff69b4)](https://github.com/sponsors/toviszsolt)
+
 # passport-twitter-safe
 
-**Zero-dependency and SAFE reimplementation of `passport-twitter`.** Built-in OAuth 1.0a client, no external runtime dependencies, dual ESM/CJS.
+**Zero-dependency, ultra tiny (~3KB gzipped) and SAFE reimplementation of `passport-twitter`.** Built-in OAuth 1.0a client, no external runtime dependencies, dual ESM/CJS.
 
 ---
 
 ## Why this package exists
 
-The original [`passport-twitter`](https://github.com/jaredhanson/passport-twitter) depends on the [`oauth`](https://www.npmjs.com/package/oauth) package — a widely used but **unmaintained** library with several known issues:
+The original [`passport-twitter`](https://github.com/jaredhanson/passport-twitter) has **8 known vulnerabilities** (2 moderate, 5 high, 1 critical) through its transitive dependency chain:
 
-- Uses the deprecated `node-uuid` internally
-- Relies on the abandoned `passport-strategy` base class
-- Pulls in transitive dependencies that trigger security scanners (even if not exploitable)
-- No native ESM support, no tree-shakeable bundle
+```
+passport-twitter → xtraverse → xmldom
+```
+
+The [`xmldom`](https://www.npmjs.com/package/xmldom) package is effectively **unmaintained** — most of these vulnerabilities have no patch available. On top of that, the whole dependency chain relies on several abandoned or deprecated packages:
+
+- [`oauth`](https://www.npmjs.com/package/oauth) — unmaintained, uses deprecated `node-uuid`
+- [`passport-strategy`](https://www.npmjs.com/package/passport-strategy) — abandoned base class
+- [`xtraverse`](https://www.npmjs.com/package/xtraverse) — pulls in `xmldom` for XML parsing that Twitter's JSON API doesn't even need
 
 `passport-twitter-safe` is a **clean-room reimplementation** of the same API that:
 
 - **Zero runtime dependencies** — the OAuth 1.0a client is implemented with Node.js built-in modules only (`crypto`, `http`, `https`, `url`, `querystring`)
 - **Self-contained `Strategy` base class** — no external `passport-strategy` dependency
-- **Dual format** — ESM (`dist/passport.js`) and CJS (`dist/passport.cjs`)
-- **TypeScript declarations** included
-- **~16 KB** bundle, fully auditable source
+- **First-class Dual Build** — native ESM (`.mjs`) and CommonJS (`.cjs`) outputs
+- **TypeScript declarations** included out of the box
+- **Ultra lightweight** — ~3 KB gzipped
 
-The public API is identical to `passport-twitter`. Replace one line in your imports and everything works the same — but your dependency tree stays clean.
+The public API is 100% compatible with `passport-twitter`. Replace one line in your imports and everything works the same — but your dependency tree stays clean.
 
 ---
 
@@ -49,7 +66,9 @@ yarn add passport-twitter-safe
 
 ### Configure strategy
 
-```ts
+#### ES Module (ESM / TypeScript / .mjs):
+
+```js
 import TwitterStrategy from 'passport-twitter-safe';
 
 passport.use(
@@ -67,9 +86,18 @@ passport.use(
 );
 ```
 
+#### CommonJS (CJS / .cjs):
+
+```js
+const TwitterStrategy = require('passport-twitter-safe');
+// or: const TwitterStrategy = require('passport-twitter-safe').Strategy;
+
+passport.use(new TwitterStrategy({ ... }, verifyCallback));
+```
+
 ### Express routes
 
-```ts
+```js
 app.get('/auth/twitter', passport.authenticate('twitter'));
 
 app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/login' }), (req, res) =>
@@ -118,14 +146,14 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedi
 ## Migrating from `passport-twitter`
 
 ```diff
+// ESM / TypeScript / .mjs
 - import TwitterStrategy from 'passport-twitter';
 + import TwitterStrategy from 'passport-twitter-safe';
 
-// — or —
+// CommonJS / .cjs
 - const TwitterStrategy = require('passport-twitter').Strategy;
 + const TwitterStrategy = require('passport-twitter-safe').Strategy;
-
-// Everything else stays the same.
+// (Direct require works too: const TwitterStrategy = require('passport-twitter-safe'))
 ```
 
 ## Guidelines
