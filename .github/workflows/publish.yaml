@@ -48,8 +48,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish to npm with Trusted Publishing
-        env:
-          NPM_CONFIG_PROVENANCE: true
         run: |
           npm pkg delete scripts dependencies devDependencies overrides resolutions
-          npm publish --access public
+          npm publish npm publish --access public --provenance
