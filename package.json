@@ -4,6 +4,8 @@
   "description": "Twitter authentication strategy for Passport. Drop-in safe replacement for passport-twitter with zero external dependencies.",
   "keywords": [
     "passport",
+    "passport-strategy",
+    "strategy",
     "twitter",
     "oauth"
   ],
