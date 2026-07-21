@@ -6,6 +6,14 @@
 
 ---
 
+## Sponsoring
+
+If you find this project useful, please consider sponsoring me by:
+
+[Donate&nbsp;via&nbsp;GitHub](https://github.com/sponsors/toviszsolt) | [Donate&nbsp;via&nbsp;PayPal](https://www.paypal.com/paypalme/toviszsolt) | [Give&nbsp;the&nbsp;repo&nbsp;a&nbsp;Star](https://github.com/toviszsolt/passport-twitter-safe) | [Follow&nbsp;me&nbsp;on&nbsp;GitHub](https://github.com/toviszsolt)
+
+---
+
 ## Why this package exists
 
 The original [`passport-twitter`](https://github.com/jaredhanson/passport-twitter) has **8 known vulnerabilities** (2 moderate, 5 high, 1 critical) through its transitive dependency chain:
@@ -29,14 +37,6 @@ The [`xmldom`](https://www.npmjs.com/package/xmldom) package is effectively **un
 - **Ultra lightweight** — ~3 KB gzipped
 
 The public API is 100% compatible with `passport-twitter`. Replace one line in your imports and everything works the same — but your dependency tree stays clean.
-
----
-
-## Sponsoring
-
-If you find this project useful, please consider sponsoring me by:
-
-[Donate&nbsp;via&nbsp;GitHub](https://github.com/sponsors/toviszsolt) | [Donate&nbsp;via&nbsp;PayPal](https://www.paypal.com/paypalme/toviszsolt) | [Give&nbsp;the&nbsp;repo&nbsp;a&nbsp;Star](https://github.com/toviszsolt/passport-twitter-safe) | [Follow&nbsp;me&nbsp;on&nbsp;GitHub](https://github.com/toviszsolt)
 
 ---
 
