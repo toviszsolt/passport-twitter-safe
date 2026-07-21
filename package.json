@@ -1,0 +1,58 @@
+{
+  "name": "passport-twitter-safe",
+  "version": "0.9.0",
+  "description": "Twitter authentication strategy for Passport. Drop-in safe replacement for passport-twitter with zero external dependencies.",
+  "keywords": [
+    "passport",
+    "twitter",
+    "oauth"
+  ],
+  "author": {
+    "name": "Zsolt Tovis",
+    "email": "tovis.zsolt@gmail.com",
+    "url": "https://toviszsolt.github.io/"
+  },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/toviszsolt"
+    },
+    {
+      "type": "paypal",
+      "url": "https://www.paypal.com/paypalme/toviszsolt"
+    }
+  ],
+  "homepage": "https://github.com/toviszsolt/passport-twitter-safe",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toviszsolt/passport-twitter-safe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toviszsolt/passport-twitter-safe/issues"
+  },
+  "type": "module",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  }
+}
