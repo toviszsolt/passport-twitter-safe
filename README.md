@@ -1,14 +1,4 @@
-[![license](https://img.shields.io/npm/l/passport-twitter-safe.svg)](https://github.com/toviszsolt/passport-twitter-safe/blob/main/LICENSE)
-
-[![npm version](https://img.shields.io/npm/v/passport-twitter-safe.svg)](https://www.npmjs.com/package/passport-twitter-safe)
-
-[![GitHub Repo stars](https://img.shields.io/github/stars/toviszsolt/passport-twitter-safe?color=DAAA3F)](https://github.com/toviszsolt/passport-twitter-safe/stargazers)
-
-[![bundle size](https://img.shields.io/bundlephobia/minzip/passport-twitter-safe)](https://bundlephobia.com/result?p=passport-twitter-safe)
-
-[![Run tests](https://github.com/toviszsolt/passport-twitter-safe/actions/workflows/main.yml/badge.svg)](https://github.com/toviszsolt/passport-twitter-safe/actions/workflows/main.yml)
-
-[![Sponsor](https://img.shields.io/static/v1?label=sponsor&message=❤&color=ff69b4)](https://github.com/sponsors/toviszsolt)
+[![license](https://img.shields.io/npm/l/passport-twitter-safe.svg)](https://github.com/toviszsolt/passport-twitter-safe/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/passport-twitter-safe.svg)](https://www.npmjs.com/package/passport-twitter-safe) [![GitHub Repo stars](https://img.shields.io/github/stars/toviszsolt/passport-twitter-safe?color=DAAA3F)](https://github.com/toviszsolt/passport-twitter-safe/stargazers) [![bundle size](https://img.shields.io/bundlephobia/minzip/passport-twitter-safe)](https://bundlephobia.com/result?p=passport-twitter-safe) [![Run tests](https://github.com/toviszsolt/passport-twitter-safe/actions/workflows/main.yaml/badge.svg)](https://github.com/toviszsolt/passport-twitter-safe/actions/workflows/main.yaml) [![Sponsor](https://img.shields.io/static/v1?label=sponsor&message=❤&color=ff69b4)](https://github.com/sponsors/toviszsolt)
 
 # passport-twitter-safe
 
